@@ -32,7 +32,7 @@ Claude Skills are folders containing instructions that teach Claude how to perfo
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/claude-skills.git
+git clone https://github.com/derekross/derek-claude-skills.git
 
 # Create Claude's skills directory if it doesn't exist
 mkdir -p ~/.claude/skills
