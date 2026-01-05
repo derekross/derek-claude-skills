@@ -213,17 +213,43 @@ Check andotherstuff.org for the full portfolio of freedom tech projects.
 
 ## Shakespeare Workshops
 
+### Essential Workshop Resources
+
+**URLs You'll Need:**
+- **Shakespeare Platform:** https://shakespeare.diy
+- **Gift Card Faucet:** https://faucet.shakespeare.diy (for creating QR codes)
+- **Presentation Template:** https://www.canva.com/design/DAG5St3AQVk/6rb3k_09jG9hK7aMvZkU9A/edit
+- **Printable Gift Card Template:** https://www.canva.com/design/DAG5dCHcfxw/1k7eWYgMuqiYAvrXsWvFyA/edit
+- **Full Workshop Guide:** https://soapbox.pub/blog/shakespeare-workshop-guide/
+
 ### Workshop Types
 
-**Intro Workshop (60-90 min)**
-For general audiences, non-technical users
+**Standard Workshop (60 min)**
+The recommended format for general audiences at meetups, conferences, or community events.
 
-Agenda:
-1. Welcome & context (10 min)
-2. What is Shakespeare / why it exists (10 min)
-3. Live demo: build a site together (20 min)
-4. Hands-on: participants build their own (30 min)
-5. Q&A and next steps (10 min)
+**Timeline:**
+1. **0-10 min: Introduction**
+   - Shakespeare basics and capabilities
+   - What it can build (Nostr apps, websites, interactive web tools)
+   - What it can't do (no backend services, no native mobile apps)
+   - AI model selection (recommend Claude Sonnet 4.5 for optimal output)
+
+2. **10-40 min: Live Building**
+   - Display QR code for participants to scan and redeem credits
+   - Facilitator builds a sample project while participants follow along
+   - Participants create their own variations
+   - Use "Pause for Questions" frequently
+   - Show preview mode often
+   - Have roaming helpers assist participants
+
+3. **40-45 min: Deployment**
+   - Help participants deploy their projects
+   - Troubleshoot any deployment issues
+
+4. **45-60 min: Showcase**
+   - Participants present 1-2 minute demos
+   - Highlight unique approaches and creative solutions
+   - Community feedback and celebration
 
 **Developer Workshop (2-3 hours)**
 For technical audiences who want to understand/contribute
@@ -245,14 +271,55 @@ Flow:
 3. Hand them a card with QR code
 4. Capture contact if interested in more
 
-### Workshop Logistics Checklist
-- [ ] Venue with reliable WiFi
-- [ ] Power strips for participants
-- [ ] Projector/screen for demos
-- [ ] Backup: pre-recorded demo video
-- [ ] Handout with getting started steps
-- [ ] QR codes for key links
-- [ ] Feedback form
+### Pre-Workshop Preparation
+
+**Gift Card Setup (Critical!):**
+1. Purchase gift cards via Shakespeare settings (https://shakespeare.diy)
+2. Export cards as CSV file
+3. Upload CSV to the faucet (https://faucet.shakespeare.diy)
+4. Faucet generates a QR code for participants to scan
+5. Add QR code to your presentation slides
+
+**Logistics Checklist:**
+- [ ] Purchase sufficient gift cards for expected attendees
+- [ ] Upload cards to faucet and test QR code
+- [ ] Customize presentation template with event details
+- [ ] Identify 2-3 experienced helpers beforehand
+- [ ] Confirm venue has reliable WiFi
+- [ ] Confirm venue has projection capability
+- [ ] Arrange power strips for participants
+- [ ] Print backup QR codes in case projection fails
+- [ ] Prepare pre-recorded demo video as backup
+- [ ] Have printable gift cards ready (for physical handouts)
+
+### During the Workshop
+
+**Introduction Phase Best Practices:**
+- Present "what Shakespeare can build" with concrete examples
+- Be clear about limitations upfront (no backend, no native apps)
+- Emphasize Nostr-native application strengths
+- Recommend Claude Sonnet 4.5 for best code output
+
+**Building Phase Best Practices:**
+- Display QR code prominently for credit redemption
+- Have pre-identified helpers roaming to assist
+- Pause frequently for questions
+- Show preview mode often so participants see progress
+- Encourage creative variations, not just copying the facilitator
+- Create a collaborative, supportive environment
+
+**Showcase Phase Best Practices:**
+- Allocate full 15-20 minutes for presentations
+- Keep demos to 1-2 minutes each
+- Celebrate unique approaches and creative solutions
+- Encourage peer feedback and questions
+
+### Key Success Factors
+- **Helpers are essential** - Pre-identified experienced helpers make everything smoother
+- **Test everything** - Run through the full flow before the workshop
+- **QR codes are your lifeline** - Have backups printed
+- **Emphasize Nostr** - Shakespeare shines with Nostr-native apps
+- **Create community** - The showcase is where magic happens
 
 ### Workshop Promotion
 - Announce 2-3 weeks ahead
