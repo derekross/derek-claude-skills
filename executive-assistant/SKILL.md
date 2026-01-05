@@ -1,5 +1,5 @@
 ---
-name: Executive Assistant
+name: executive-assistant
 description: Comprehensive administrative support for task management, meeting notes, email drafting, document organization, and staying on track. Use for any organizational, scheduling, or administrative work.
 ---
 

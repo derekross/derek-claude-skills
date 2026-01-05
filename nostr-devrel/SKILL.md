@@ -1,5 +1,5 @@
 ---
-name: Nostr DevRel Toolkit
+name: nostr-devrel-toolkit
 description: Developer Relations toolkit for Nostr ecosystem and freedom tech. Use for community building, developer advocacy, conference prep, Shakespeare demos/workshops, and decentralized social evangelism.
 ---
 

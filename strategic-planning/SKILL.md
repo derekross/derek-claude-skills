@@ -1,5 +1,5 @@
 ---
-name: Strategic Planning
+name: strategic-planning
 description: Create strategic plans and execute them systematically. Use for conference planning, product launches, campaign strategies, and project management.
 ---
 

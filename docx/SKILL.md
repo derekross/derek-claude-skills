@@ -1,7 +1,6 @@
 ---
-name: Document Creator
+name: document-creator
 description: Create and edit professional Word documents including proposals, reports, contracts, invoices, and technical documentation. Use for any formal written deliverable.
-dependencies: python-docx>=0.8.11
 ---
 
 # Document Creator
