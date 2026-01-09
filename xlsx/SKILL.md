@@ -1,6 +1,7 @@
 ---
-name: spreadsheet-manager
+name: xlsx
 description: Create and edit Excel spreadsheets for budgets, expense tracking, event planning, project management, and data analysis. Use for financial and organizational tasks.
+dependencies: openpyxl>=3.1.0, pandas>=2.0.0
 ---
 
 # Spreadsheet Manager

@@ -1,5 +1,5 @@
 ---
-name: content-researchwriter
+name: content-research-writer
 description: Research topics deeply and create compelling content including blog posts, Reddit campaigns, technical articles, and educational materials. Use for marketing and developer advocacy content.
 ---
 

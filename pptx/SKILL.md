@@ -1,6 +1,7 @@
 ---
-name: presentation-creator
+name: pptx
 description: Create professional PowerPoint presentations for conferences, demos, and talks. Use for Bitcoin/Nostr events, product showcases, and speaker decks.
+dependencies: python-pptx>=0.6.21
 ---
 
 # Presentation Creator

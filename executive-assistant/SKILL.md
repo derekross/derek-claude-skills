@@ -370,6 +370,336 @@ Ask me to:
 - "Create a status update for [project]"
 - "Help me time block tomorrow"
 
+## Workflow Tools Integration
+
+### Obsidian Vault
+Derek's work files live in an Obsidian vault:
+
+**Location:** `/home/raven/Vault/Soapbox/Work/Tasks/`
+
+**Key Files:**
+- `YYYY-MM-DD-tasks.md` - Daily task files (auto-generated)
+- `Reports/YYYY-WNN-report.md` - Weekly completion reports
+
+**Daily Task File Contents:**
+- Today's calendar events
+- Taskwarrior pending tasks
+- GitLab todos
+- MRs awaiting review
+- MRs assigned/authored
+- Issues assigned/authored
+- Recent project activity
+
+### Taskwarrior
+
+Derek uses Taskwarrior for task management. **Always use Taskwarrior** for creating, tracking, and completing tasks.
+
+**Common Commands:**
+```bash
+# Create a task
+task add "Task description" priority:H project:soapbox due:tomorrow
+
+# List pending tasks
+task list
+
+# Complete a task
+task <id> done
+
+# View task details
+task <id> info
+
+# Modify a task
+task <id> modify priority:M due:friday
+
+# List tasks by project
+task project:soapbox list
+
+# Show today's tasks
+task due:today list
+```
+
+**Priority Levels:**
+- `priority:H` - High (urgent/blocking)
+- `priority:M` - Medium (important)
+- `priority:L` - Low (can wait)
+
+**GitLab-Linked Tasks:**
+Tasks synced from GitLab have custom attributes:
+- `gitlab_id` - Unique GitLab identifier
+- `gitlab_type` - "issue" or "mr"
+- `gitlab_url` - Link to GitLab item
+- `gitlab_project` - Project name
+
+```bash
+# List GitLab tasks
+task +gitlab list
+
+# View GitLab-specific info
+task gitlab_project:soapbox list
+```
+
+**When Derek asks you to:**
+- "Add a task" → Use `task add`
+- "Mark that done" → Use `task <id> done`
+- "What's on my plate?" → Use `task list` or read the daily tasks file
+- "Create a task for X" → Use `task add "X" priority:M`
+
+### Taskwarrior & Document Sync
+
+**IMPORTANT:** When modifying any document that contains tasks (schedules, task files, meeting notes, etc.), you MUST keep Taskwarrior in sync.
+
+**When adding tasks to a document:**
+1. First check if the task exists in Taskwarrior: `task project:<project> list` or search
+2. If not found, add it to Taskwarrior: `task add "Task description" project:<project> priority:H due:<date>`
+3. Then add it to the document
+
+**When marking tasks complete in a document:**
+1. Mark it complete in the document (change `- [ ]` to `- [x]`)
+2. Find the corresponding task in Taskwarrior: `task project:<project> list`
+3. Mark it done in Taskwarrior: `task <id> done`
+
+**When building schedules or daily task files:**
+1. If user requests adding a new task, add to BOTH the document AND Taskwarrior
+2. If user says they completed a task, update BOTH the document AND Taskwarrior
+3. Always verify sync by checking both systems
+
+**Workflow Example:**
+```bash
+# User says: "Add a task to book Will's hotel"
+task add "Book Moxy hotel room for Will" project:nostrnights priority:H due:2026-01-20
+# Then add to the schedule/task document
+
+# User says: "I booked Will's hotel"
+task project:nostrnights list  # Find the task ID
+task <id> done                  # Mark complete in Taskwarrior
+# Then mark [x] in the document
+```
+
+This ensures the daily task files (auto-generated from Taskwarrior) stay accurate and nothing falls through the cracks.
+
+### khal Calendar
+
+Derek's calendar is synced via khal (connected to Google Calendar via vdirsyncer).
+
+**Common Commands:**
+```bash
+# View today's events
+khal list today
+
+# View this week
+khal list today 7d
+
+# View specific date
+khal list 2026-01-15
+
+# Add a new event
+khal new 2026-01-15 14:00 15:00 "Meeting with Alex"
+
+# Add all-day event
+khal new 2026-01-15 "Conference Day"
+
+# Interactive calendar view
+khal interactive
+```
+
+**Creating Calendar Events:**
+```bash
+# Format: khal new [date] [start] [end] "title" [-l location] [-d description]
+khal new tomorrow 10:00 11:00 "Team standup" -l "Google Meet"
+
+# Multi-day event
+khal new 2026-01-20 2026-01-22 "Bitcoin Conference"
+```
+
+**Sync Calendar:**
+```bash
+# Pull latest from Google Calendar
+vdirsyncer sync
+```
+
+**When Derek asks you to:**
+- "What's on my calendar?" → Use `khal list today` or `khal list today 7d`
+- "Schedule a meeting" → Use `khal new` with appropriate params
+- "Block time for work" → Create a calendar event with `khal new`
+- "What do I have tomorrow?" → Use `khal list tomorrow`
+
+### khard Contacts
+
+Derek's contacts are synced from Google Contacts via vdirsyncer and managed with khard.
+
+**Common Commands:**
+```bash
+# List all contacts
+khard list
+
+# Search for a contact
+khard list john
+
+# Show contact details (email, phone, etc.)
+khard show "John Smith"
+
+# Add a new contact
+khard new
+
+# Edit a contact
+khard edit "John Smith"
+
+# Delete a contact
+khard remove "John Smith"
+
+# Sync contacts with Google
+vdirsyncer sync google_contacts
+```
+
+**Use Cases:**
+- Looking up email addresses for drafting emails
+- Finding phone numbers for meeting invites
+- Getting contact details before meetings
+- Adding new contacts after networking events
+- Updating contact information
+
+**When Derek asks you to:**
+- "What's Alex's email?" → Use `khard show alex`
+- "Look up John's phone number" → Use `khard show john`
+- "Find the contact for [company/name]" → Use `khard list [search term]`
+- "Add a new contact" → Use `khard new` or create a .vcf file
+- "Get me the contact info for tomorrow's meeting attendees" → Check calendar with `khal`, then look up each attendee with `khard show`
+
+**Integration with Other Tools:**
+- Before drafting emails, look up recipient's email with khard
+- When preparing meeting agendas, pull attendee contact details
+- For conference follow-ups, look up contacts by company or event tag
+
+### GitLab Integration
+
+GitLab data syncs automatically via cron and can be manually triggered.
+
+**Scripts Location:** `/home/raven/Projects/devRel/`
+
+**Manual Sync:**
+```bash
+# Run full daily sync (calendar + GitLab + Taskwarrior)
+cd /home/raven/Projects/devRel && python3 daily_sync.py --sync-to-taskwarrior
+
+# Dry run (print output, don't save)
+python3 daily_sync.py --dry-run
+
+# Generate weekly report
+python3 weekly_report.py --dry-run
+```
+
+**Cron Schedule:**
+- Daily sync: 8am every day
+- Weekly report: Fridays at 5pm
+
+**What Gets Synced:**
+- GitLab MRs (review requested, assigned, authored, approved)
+- GitLab issues (assigned, authored)
+- GitLab todos
+- Starred project activity
+- Calendar events for the day
+- Taskwarrior tasks
+
+### Daily Workflow Integration
+
+**Morning Routine:**
+1. Check daily tasks file: `/home/raven/Vault/Soapbox/Work/Tasks/YYYY-MM-DD-tasks.md`
+2. Review calendar: `khal list today`
+3. Review Taskwarrior: `task list`
+4. Prioritize work based on MRs needing review (blocking others)
+
+**Throughout the Day:**
+- Create tasks as work items arise: `task add`
+- Mark tasks complete: `task <id> done`
+- Block focus time: `khal new` to create calendar events
+- Check for updates: Reference the daily tasks file
+
+**End of Day:**
+- Mark completed tasks done in Taskwarrior
+- Review tomorrow's calendar: `khal list tomorrow`
+- Note any blockers for tomorrow
+
+**Weekly Review (Fridays):**
+- Check weekly report: `/home/raven/Vault/Soapbox/Work/Tasks/Reports/YYYY-WNN-report.md`
+- Review completed tasks
+- Plan next week's priorities
+
+### Building Daily Schedules
+
+**Template Location:** `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+
+When Derek asks you to build a daily schedule, create a schedule, or plan the day:
+
+1. **Read the template** at `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+2. **Read today's tasks** from `/home/raven/Vault/Soapbox/Work/Tasks/YYYY-MM-DD-tasks.md`
+3. **Check the calendar** with `khal list today`
+4. **Build the schedule** using the DevRel time blocks from the template
+
+**DevRel Daily Time Blocks:**
+| Time | Block | Focus |
+|------|-------|-------|
+| 8:00-10:00 | Community Engagement | Nostr, social, answering questions |
+| 10:00-12:00 | Code Review & Issue Triage | GitHub/GitLab, PRs, NIPs |
+| 12:00-13:00 | Lunch & Async Catch-up | Email, calendar review |
+| 13:00-15:30 | Development & Project Work | Deep work, building, shipping |
+| 15:30-17:00 | Content Creation | Tutorials, docs, videos, social |
+| 17:00-18:00 | Event & Conference Planning | CFPs, talks, travel, logistics |
+| 18:00-18:30 | End of Day Wrap-up | Review, tomorrow's priorities |
+
+**Weekly Focus Days:**
+| Day | Primary Focus |
+|-----|---------------|
+| Monday | Week planning, review metrics, set goals |
+| Tuesday | Deep dev work - minimize meetings |
+| Wednesday | Content creation - publish blog/video |
+| Thursday | Community calls, AMAs, live sessions |
+| Friday | Week review, documentation cleanup |
+
+**Schedule Building Process:**
+1. Identify current time and which block we're in (or starting from)
+2. Mark completed blocks as done
+3. Layer calendar events onto the template blocks
+4. **If user adds new tasks:** Add to BOTH the schedule document AND Taskwarrior
+5. **If user completes tasks:** Mark done in BOTH the schedule document AND Taskwarrior
+6. Prioritize tasks by:
+   - Due date (soonest first)
+   - Priority level (!!! > !! > !)
+   - Blocking items (failed builds, MRs needing action)
+   - Time-sensitive items (releases, meetings)
+5. Assign tasks to appropriate blocks based on task type:
+   - Code/PR work → Development block
+   - Writing/docs → Content Creation block
+   - Conference/travel → Event Planning block
+   - Community questions → Community Engagement block
+6. Note any evening commitments from the calendar
+7. Respect the daily focus (e.g., Wednesday = content day)
+
+**Output Format:**
+```markdown
+## [DAY], [DATE]
+**[Weekly Focus] Day** | _The purple pill helps the orange pill go down_ 💜🟠
+
+---
+
+### ✅ COMPLETED BLOCKS
+[List completed time blocks]
+
+### [CURRENT BLOCK EMOJI] [TIME] — [BLOCK NAME] (NOW)
+**Priority Tasks:**
+- [ ] Task 1 (priority/due info)
+- [ ] Task 2
+
+### [NEXT BLOCK EMOJI] [TIME] — [BLOCK NAME]
+[Tasks for this block]
+
+... continue for remaining blocks ...
+
+### 🏠 EVENING COMMITMENTS
+| Time | Event |
+|------|-------|
+| HH:MM | Event name |
+```
+
 ## Integration Notes
 
 ### Works Best With
@@ -377,9 +707,10 @@ Ask me to:
 - **docx skill** - For formal documents, proposals
 - **strategic-planning skill** - For larger initiatives
 - **nostr-devrel skill** - For Soapbox-specific work
-
-### For External Tool Integration
-To connect with external tools (Gmail, Calendar, Todoist, etc.), you'll need MCP (Model Context Protocol) connections. Skills handle workflows and templates; MCP handles live integrations.
+- **Taskwarrior** - For all task tracking
+- **khal** - For calendar management
+- **khard** - For contact lookups (email, phone, details)
+- **Obsidian vault** - For viewing daily/weekly task reports
 
 ## Example Prompts This Skill Handles
 
@@ -392,3 +723,32 @@ To connect with external tools (Gmail, Calendar, Todoist, etc.), you'll need MCP
 - "Turn this voice memo into organized action items"
 - "Write a professional email declining this opportunity"
 - "Help me set up a weekly review process"
+
+### Workflow Tool Prompts
+- "What's on my calendar today?"
+- "Add a task to review the PR from Alex"
+- "Block 2 hours tomorrow morning for deep work"
+- "Mark the Shakespeare demo task as done"
+- "What tasks do I have for the soapbox project?"
+- "Schedule a meeting with the team for Thursday at 2pm"
+- "Show me my GitLab MRs waiting for review"
+- "Create a high priority task for the conference prep"
+- "What did I complete this week?"
+- "Run the daily sync"
+
+### Contact Lookup Prompts
+- "What's Alex's email address?"
+- "Look up John's phone number"
+- "Find the contact for Soapbox"
+- "Get me the details for tomorrow's meeting attendees"
+- "Who do I have contact info for at [company]?"
+- "Add a new contact for [name] I met at the conference"
+- "What's the email for the person I'm meeting with at 2pm?"
+
+### Daily Schedule Prompts
+- "Build me a schedule for today"
+- "What should I be working on right now?"
+- "Create my daily schedule"
+- "Plan out my day"
+- "What's left on my schedule today?"
+- "Help me plan the rest of my afternoon"

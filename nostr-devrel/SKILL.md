@@ -1,5 +1,5 @@
 ---
-name: nostr-devrel-toolkit
+name: nostr-devrel
 description: Developer Relations toolkit for Nostr ecosystem and freedom tech. Use for community building, developer advocacy, conference prep, Shakespeare demos/workshops, and decentralized social evangelism.
 ---
 
@@ -493,6 +493,119 @@ nak req -k 1 -l 10 wss://relay.example.com
 - `nevent` - Event with relay hints
 - `nprofile` - Profile with relay hints
 
+## Workflow Tools for DevRel
+
+Derek uses several tools to manage DevRel tasks. Use these to help track and execute DevRel work.
+
+### Taskwarrior for DevRel Tasks
+
+Create and track DevRel-specific tasks:
+
+```bash
+# Conference prep tasks
+task add "Submit Bitcoin 2026 speaker application" project:conferences priority:H due:2026-02-01
+
+# Workshop tasks
+task add "Prepare Shakespeare workshop materials" project:workshops priority:M
+
+# Content tasks
+task add "Write blog post about Nostr onboarding" project:content priority:M
+
+# Community tasks
+task add "Follow up with Alex from meetup" project:community priority:L due:friday
+```
+
+**Useful DevRel Filters:**
+```bash
+# List all conference-related tasks
+task project:conferences list
+
+# List workshop tasks
+task project:workshops list
+
+# List content creation tasks
+task project:content list
+
+# Complete a task
+task <id> done
+```
+
+### khal for DevRel Scheduling
+
+Schedule conferences, workshops, and community events:
+
+```bash
+# Schedule a workshop
+khal new 2026-02-15 14:00 16:00 "Shakespeare Workshop - BTC++ Side Event" -l "Conference Room A"
+
+# Block time for conference prep
+khal new tomorrow 09:00 12:00 "Deep work: Conference slides"
+
+# Add conference dates
+khal new 2026-05-27 2026-05-29 "Bitcoin Conference 2026 - Las Vegas"
+
+# Schedule community call
+khal new "next thursday" 18:00 19:00 "Nostr Community Office Hours" -l "NostrNests"
+```
+
+### GitLab for Soapbox Projects
+
+GitLab issues and MRs for Soapbox projects sync automatically to the daily task file.
+
+**Scripts Location:** `/home/raven/Projects/devRel/`
+
+```bash
+# Manual sync to get latest GitLab data
+cd /home/raven/Projects/devRel && python3 daily_sync.py --sync-to-taskwarrior --dry-run
+
+# Check daily tasks file for GitLab items
+cat /home/raven/Vault/Soapbox/Work/Tasks/$(date +%Y-%m-%d)-tasks.md
+```
+
+**GitLab-linked Taskwarrior tasks:**
+```bash
+# List all GitLab tasks
+task +gitlab list
+
+# List Shakespeare project tasks
+task gitlab_project.contains:shakespeare list
+
+# List Soapbox-related GitLab tasks
+task gitlab_project.contains:soapbox list
+```
+
+### Obsidian Vault for DevRel
+
+Daily task files include all DevRel-relevant items:
+
+**Location:** `/home/raven/Vault/Soapbox/Work/Tasks/`
+
+**Contents include:**
+- GitLab MRs for Soapbox/Shakespeare
+- Issues assigned to Derek
+- GitLab todos
+- Calendar events (workshops, conferences, calls)
+- Taskwarrior tasks
+
+**Weekly Reports:** `/home/raven/Vault/Soapbox/Work/Tasks/Reports/YYYY-WNN-report.md`
+- Track completed DevRel work
+- Review what shipped each week
+
+### DevRel Workflow Example
+
+**Planning a Workshop:**
+1. Create task: `task add "Plan Shakespeare workshop for BTC++" project:workshops priority:H due:2026-02-01`
+2. Block prep time: `khal new tomorrow 10:00 12:00 "Workshop prep: outline and materials"`
+3. Schedule the event: `khal new 2026-02-15 14:00 16:00 "Shakespeare Workshop"`
+4. Track sub-tasks as you work
+5. Mark complete: `task <id> done`
+
+**Conference Prep:**
+1. Create main task: `task add "Bitcoin 2026 conference prep" project:conferences priority:H`
+2. Add calendar block: `khal new 2026-05-27 2026-05-29 "Bitcoin Conference 2026"`
+3. Create sub-tasks for talk prep, demo prep, materials, etc.
+4. Review GitLab for any Soapbox issues to address before conference
+
 ## Example Prompts This Skill Handles
 
 - "Write a conference talk about Nostr for a general audience"
@@ -504,3 +617,13 @@ nak req -k 1 -l 10 wss://relay.example.com
 - "Plan the diVine launch communications"
 - "Write a thread about owning your social graph"
 - "What's my approach to evangelism again?"
+
+### DevRel Workflow Prompts
+- "Add a task to prepare for the Bitcoin conference talk"
+- "Schedule the Shakespeare workshop for next Saturday at 2pm"
+- "Block tomorrow morning for conference prep"
+- "What Soapbox GitLab issues need attention?"
+- "Create tasks for the NosVegas event planning"
+- "Mark the speaker application as done"
+- "What workshops do I have coming up?"
+- "Show me my DevRel tasks for this week"
