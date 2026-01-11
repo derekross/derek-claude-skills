@@ -676,8 +676,11 @@ When Derek asks you to build a daily schedule, create a schedule, or plan the da
 
 **Output Format:**
 ```markdown
-## [DAY], [DATE]
-**[Weekly Focus] Day** | _The purple pill helps the orange pill go down_ 💜🟠
+# DAILY SCHEDULE — [Day], [Full Date]
+
+**Focus:** [Weekly Focus] 💜🟠
+
+**Tasks:** [[YYYY-MM-DD-tasks]]
 
 ---
 
@@ -699,6 +702,33 @@ When Derek asks you to build a daily schedule, create a schedule, or plan the da
 |------|-------|
 | HH:MM | Event name |
 ```
+
+### Obsidian Linking
+
+**IMPORTANT:** Use Obsidian `[[wikilinks]]` to connect related documents. This creates a navigable knowledge graph.
+
+**Daily Schedules → Daily Tasks:**
+Schedules are derived from task files, so schedules should link to their source:
+```markdown
+**Tasks:** [[2026-01-09-tasks]]
+```
+
+**Weekly Reports → Daily Tasks:**
+Weekly reports summarize the week's tasks, so they should link to each day:
+```markdown
+## Daily Breakdowns
+- [[2026-01-06-tasks|Monday]]
+- [[2026-01-07-tasks|Tuesday]]
+- [[2026-01-08-tasks|Wednesday]]
+- [[2026-01-09-tasks|Thursday]]
+- [[2026-01-10-tasks|Friday]]
+```
+
+**Linking Best Practices:**
+- Source documents (tasks) don't need to link forward to derived documents
+- Derived documents (schedules, reports) should link back to their sources
+- Use `[[filename|Display Text]]` for cleaner display
+- Links enable Obsidian's graph view and backlinks panel
 
 ## Integration Notes
 
