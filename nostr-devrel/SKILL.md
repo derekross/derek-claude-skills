@@ -10,15 +10,28 @@ A comprehensive Developer Relations toolkit for advocating Nostr protocol, freed
 ## When to Use This Skill
 
 Use this skill when you need to:
-- Create content about Nostr or decentralized social
-- Prepare conference talks or demos
-- Plan and run Shakespeare workshops
-- Onboard new users or developers
-- Plan community events (NosVegas, meetups)
-- Develop Shakespeare demos and materials
-- Write technical documentation
+
+**Soapbox Products & Content:**
+- Plan and run Shakespeare workshops or demos
+- Prepare Soapbox Sessions podcast episodes
+- Host or promote the Monday Vibe Coding Jam Session
+- Create content about Ditto, NostrHub, or other Soapbox products
+- Support product launches and announcements
+
+**Community & Events:**
+- Onboard new users or developers to Nostr
+- Plan community events (NosVegas, meetups, workshops)
+- Prepare conference talks or booth demos
 - Engage with the Nostr community
-- Support diVine or other product launches
+
+**Content & Documentation:**
+- Create content about Nostr or decentralized social
+- Write technical documentation
+- Draft announcements, threads, or blog posts
+
+**Ecosystem:**
+- Support diVine or other AOS product launches
+- Collaborate with broader Nostr ecosystem projects
 
 ## Core Philosophy
 
@@ -188,8 +201,88 @@ NIP-07 browser extension for secure key management.
 - Pairs with any Nostr web client
 - Part of the secure key management story
 
+### Soapbox Sessions Podcast
+**Website:** https://sessions.soapbox.pub
+**Platform:** Podstr (built with Shakespeare, Nostr-native podcast hosting)
+
+**Schedule:**
+- **Recording:** Every Wednesday
+- **Release:** Every Thursday
+
+**Hosts:**
+- Derek Ross (DevRel)
+- Heather Larson (Marketing)
+
+**Format:** Morning show style podcast
+
+**Topics Covered:**
+- Decentralized social media
+- Nostr protocol and ecosystem
+- Nostr news and updates
+- Weekly vibe coding jam session recaps
+- Soapbox company news
+
+**Technical Features:**
+- Nostr-native podcast (events on Nostr)
+- Podcasting 2.0 RSS XML feed support
+- Built on Podstr platform (Shakespeare-created)
+
+**Episode Planning:**
+- GitLab issues track upcoming episodes: `HeatherLarson/soapbox-sessions`
+- Coordinate content with weekly Nostr news cycle
+- Incorporate community feedback and questions
+
+### NostrHub
+**Website:** https://nostrhub.io
+
+A Nostr developer platform providing:
+- **Custom NIPs** - Create and maintain NIP proposals
+- **Nostr Git Repos** - Git hosting on Nostr
+- **App Directory** - Nostr product/app discovery
+- **Community Discussions** - Developer community forums
+
+**Use Cases:**
+- Point developers here for NIP collaboration
+- Showcase Soapbox products in the app directory
+- Engage with developer community discussions
+- Host project repos on Nostr-native git
+
+### Ditto
+**Website:** https://ditto.pub
+
+Soapbox's Nostr social client. A full-featured social experience built on the Nostr protocol.
+
+### Shakespeare Vibe Coding Jam Session
+**Platform:** https://hivetalk.org (Nostr-native Zoom alternative)
+**Schedule:** Every Monday at 8:00 PM ET
+**Host:** Derek Ross
+
+**Format:** Community video call with screen sharing
+
+**What Happens:**
+- Go around the room/call sharing projects
+- Screen share demos of what people are building
+- Share tools and techniques being used
+- Live demos of new Shakespeare features
+- Live Q&A session
+- User feedback collection
+- Community support and troubleshooting
+
+**Goals:**
+- Grow the vibe coding movement
+- Foster the Shakespeare community
+- Provide real-time support and feedback
+- Showcase community creations
+
+**Who Can Join:**
+- Open to everyone
+- Everyone can share their work
+- Beginners and experienced builders welcome
+
+**Recaps:**
+- Weekly recaps featured on Soapbox Sessions podcast (Thursdays)
+
 ### Other Soapbox Products
-- Soapbox social client
 - Additional products as released
 
 ## AOS Products (Secondary)

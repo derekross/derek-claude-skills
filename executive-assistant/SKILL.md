@@ -375,11 +375,17 @@ Ask me to:
 ### Obsidian Vault
 Derek's work files live in an Obsidian vault:
 
-**Location:** `/home/raven/Vault/Soapbox/Work/Tasks/`
+**Key Directories:**
+- `/home/raven/Vault/Soapbox/Work/Tasks/` - Daily task files (auto-generated)
+- `/home/raven/Vault/Soapbox/Work/Schedule/` - Daily schedule files
+- `/home/raven/Vault/Soapbox/Meetings/` - Meeting notes and prep docs
+- `/home/raven/Vault/Soapbox/Work/Tasks/Reports/` - Weekly completion reports
 
 **Key Files:**
-- `YYYY-MM-DD-tasks.md` - Daily task files (auto-generated)
-- `Reports/YYYY-WNN-report.md` - Weekly completion reports
+- `Work/Tasks/YYYY-MM-DD-tasks.md` - Daily task files (auto-generated)
+- `Work/Schedule/YYYY-MM-DD-schedule.md` - Daily schedules
+- `Meetings/YYYY-MM-DD-topic-or-attendee.md` - Meeting notes
+- `Work/Tasks/Reports/YYYY-WNN-report.md` - Weekly completion reports
 
 **Daily Task File Contents:**
 - Today's calendar events
@@ -624,9 +630,36 @@ python3 weekly_report.py --dry-run
 - Review completed tasks
 - Plan next week's priorities
 
+### Creating Meeting Notes
+
+**Meeting Notes Location:** `/home/raven/Vault/Soapbox/Meetings/YYYY-MM-DD-topic-or-attendee.md`
+
+When Derek has a new meeting or asks to prepare for a meeting:
+
+1. **Check the calendar** with `khal list` to get meeting details
+2. **Create meeting notes** in the Meetings directory with:
+   - Date, time, duration, location/link
+   - Attendees with contact info
+   - Purpose of the meeting
+   - Prep checklist (tasks to complete before)
+   - Talking points from the calendar invite description
+   - Discovery questions (for sales/intro calls)
+   - Space for notes, decisions, and action items
+3. **Add a prep task** to Taskwarrior: `task add "Prep for [meeting]" project:[project] priority:H due:[meeting-date]`
+4. **Update the schedule** to include prep time
+5. **Sync calendar** if needed: `vdirsyncer sync`
+
+**Meeting Notes Filename Convention:**
+`YYYY-MM-DD-brief-description.md`
+Examples:
+- `2026-01-14-skater-soapbox-discovery.md`
+- `2026-01-13-soapbox-team-meeting.md`
+- `2026-01-15-nostr-101-session.md`
+
 ### Building Daily Schedules
 
 **Template Location:** `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+**Schedule Output Location:** `/home/raven/Vault/Soapbox/Work/Schedule/YYYY-MM-DD-schedule.md`
 
 When Derek asks you to build a daily schedule, create a schedule, or plan the day:
 
@@ -634,6 +667,7 @@ When Derek asks you to build a daily schedule, create a schedule, or plan the da
 2. **Read today's tasks** from `/home/raven/Vault/Soapbox/Work/Tasks/YYYY-MM-DD-tasks.md`
 3. **Check the calendar** with `khal list today`
 4. **Build the schedule** using the DevRel time blocks from the template
+5. **Save the schedule** to `/home/raven/Vault/Soapbox/Work/Schedule/YYYY-MM-DD-schedule.md`
 
 **DevRel Daily Time Blocks:**
 | Time | Block | Focus |
@@ -729,6 +763,55 @@ Weekly reports summarize the week's tasks, so they should link to each day:
 - Derived documents (schedules, reports) should link back to their sources
 - Use `[[filename|Display Text]]` for cleaner display
 - Links enable Obsidian's graph view and backlinks panel
+
+### Obsidian Tags
+
+Use hashtags to make documents searchable and filterable in Obsidian.
+
+**Product Tags:**
+- `#shakespeare` - Shakespeare AI builder
+- `#ditto` - Ditto social client
+- `#nostrhub` - NostrHub dev platform
+- `#soapbox` - General Soapbox work
+- `#divine` - diVine creator platform
+
+**Activity Tags:**
+- `#podcast` - Soapbox Sessions podcast
+- `#jamsession` - Monday Vibe Coding Jam
+- `#workshop` - Shakespeare workshops
+- `#conference` - Conference-related
+- `#meetup` - Local meetups
+
+**Project Tags:**
+- `#nostrnights` - Nostr Nights events
+- `#bitcoin2026` - Bitcoin Conference 2026
+- `#btcpp` - BTC++ conference
+- `#nosvegas` - NosVegas event
+- `#aihack4freedom` - AI Hack for Freedom
+
+**Status/Type Tags:**
+- `#devrel` - Developer relations work
+- `#nostr` - Nostr ecosystem
+- `#aos` - And Other Stuff collective
+
+**Tagging Best Practices:**
+- Add relevant tags at the end of task descriptions or in document headers
+- Use 1-3 tags per item (don't over-tag)
+- Tags in schedules help filter by project/activity type
+- Consistent tagging enables powerful searches like `#podcast #soapbox`
+
+**Example Usage:**
+```markdown
+# DAILY SCHEDULE — Friday, January 9, 2026
+
+**Tags:** #devrel #soapbox
+
+---
+
+## ⚡ 1:00 PM - Development
+- [ ] Work on Shakespeare improvements #shakespeare
+- [ ] Prep for Monday jam session #jamsession
+```
 
 ## Integration Notes
 
