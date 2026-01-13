@@ -15,7 +15,6 @@ Claude Skills are folders containing instructions that teach Claude how to perfo
 | **nostr-devrel** | Nostr/freedom tech DevRel toolkit with philosophy, product priorities, workshop planning, conference prep, and community building workflows |
 | **executive-assistant** | Task management, meeting notes, email drafting, document organization, and administrative workflows for subcontractors/consultants |
 | **strategic-planning** | Create and execute strategic plans for conferences, product launches, and campaigns |
-| **planning-with-files** | Manus-style persistent markdown files for planning, progress tracking, and knowledge storage on complex multi-step tasks |
 | **content-research-writer** | Research topics and create blog posts, Reddit campaigns, technical articles, and social content |
 | **pptx** | Create professional PowerPoint presentations for conferences and demos |
 | **docx** | Create Word documents including proposals, invoices, contracts, and documentation |
@@ -42,7 +41,6 @@ mkdir -p ~/.claude/skills
 cp -r derek-claude-skills/nostr-devrel ~/.claude/skills/
 cp -r derek-claude-skills/executive-assistant ~/.claude/skills/
 cp -r derek-claude-skills/strategic-planning ~/.claude/skills/
-cp -r derek-claude-skills/planning-with-files ~/.claude/skills/
 cp -r derek-claude-skills/content-research-writer ~/.claude/skills/
 cp -r derek-claude-skills/pptx ~/.claude/skills/
 cp -r derek-claude-skills/docx ~/.claude/skills/
@@ -127,8 +125,6 @@ These skills are tailored to my workflow, but you can fork and modify them for y
 ├── executive-assistant/
 │   └── SKILL.md
 ├── strategic-planning/
-│   └── SKILL.md
-├── planning-with-files/
 │   └── SKILL.md
 ├── content-research-writer/
 │   └── SKILL.md
