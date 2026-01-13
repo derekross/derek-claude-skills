@@ -1,12 +1,12 @@
-# Claude Skills for Nostr DevRel
+# AI Skills for Nostr DevRel
 
-A collection of Claude Skills for Developer Relations work in the Nostr ecosystem, focused on community building, content creation, and freedom tech advocacy.
+A collection of AI Skills for Developer Relations work in the Nostr ecosystem, focused on community building, content creation, and freedom tech advocacy.
 
 Built for my work as DevRel at [Soapbox](https://github.com/soapbox-pub) and the [AOS (And Other Stuff)](https://andotherstuff.org) collective.
 
-## What Are Claude Skills?
+## What Are Skills?
 
-Claude Skills are folders containing instructions that teach Claude how to perform specific tasks. When you install a skill, Claude automatically loads it when relevant to your request. Learn more in the [official documentation](https://support.claude.com/en/articles/12512176-what-are-skills).
+Skills are folders containing instructions that teach AI assistants how to perform specific tasks. When you install a skill, your AI assistant automatically loads it when relevant to your request.
 
 ## Included Skills
 
@@ -22,29 +22,23 @@ Claude Skills are folders containing instructions that teach Claude how to perfo
 
 ## Installation
 
-### Claude.ai (Web/Mobile)
-
-1. Go to **Settings → Capabilities → Skills**
-2. Click **Add Skill**
-3. Upload the `.zip` file for each skill you want
-
-### Claude Code CLI
+### OpenCode
 
 ```bash
 # Clone the repo
 git clone https://github.com/derekross/derek-claude-skills.git
 
-# Create Claude's skills directory if it doesn't exist
-mkdir -p ~/.claude/skills
+# Create OpenCode's skills directory if it doesn't exist
+mkdir -p ~/.opencode/skills
 
 # Copy the skills you want
-cp -r derek-claude-skills/nostr-devrel ~/.claude/skills/
-cp -r derek-claude-skills/executive-assistant ~/.claude/skills/
-cp -r derek-claude-skills/strategic-planning ~/.claude/skills/
-cp -r derek-claude-skills/content-research-writer ~/.claude/skills/
-cp -r derek-claude-skills/pptx ~/.claude/skills/
-cp -r derek-claude-skills/docx ~/.claude/skills/
-cp -r derek-claude-skills/xlsx ~/.claude/skills/
+cp -r derek-claude-skills/nostr-devrel ~/.opencode/skills/
+cp -r derek-claude-skills/executive-assistant ~/.opencode/skills/
+cp -r derek-claude-skills/strategic-planning ~/.opencode/skills/
+cp -r derek-claude-skills/content-research-writer ~/.opencode/skills/
+cp -r derek-claude-skills/pptx ~/.opencode/skills/
+cp -r derek-claude-skills/docx ~/.opencode/skills/
+cp -r derek-claude-skills/xlsx ~/.opencode/skills/
 ```
 
 ## The Nostr DevRel Skill
@@ -92,7 +86,7 @@ For live Nostr data, pair with the Nostrbook MCP server:
 
 ## Usage Examples
 
-Once installed, Claude will automatically invoke relevant skills. You can also be explicit:
+Once installed, your AI assistant will automatically invoke relevant skills. You can also be explicit:
 
 ```
 "Help me plan a Shakespeare workshop for the Bitcoin conference"
@@ -144,8 +138,6 @@ These skills are tailored to my workflow, but you can fork and modify them for y
 - [And Other Stuff](https://andotherstuff.org)
 - [NostrPlebs](https://nostrplebs.com) — Nostr onboarding resources
 - [NostrNests](https://nostrnests.com) — Audio spaces on Nostr
-- [Awesome Claude Skills](https://github.com/VoltAgent/awesome-claude-skills) — Community skills collection
-- [Official Anthropic Skills](https://github.com/anthropics/skills) — Anthropic's skill examples
 
 ## License
 
