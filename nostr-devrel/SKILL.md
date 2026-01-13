@@ -72,6 +72,8 @@ This means:
 
 **1. Soapbox (Primary Focus)**
 - Shakespeare (AI website builder)
+- Shakespeare OpenCode Plugin (OpenCode integration)
+- Shakespeare APK Builder (Android app generation)
 - Soapbox Signer (NIP-07 browser extension)
 - Soapbox social client
 - Other Soapbox products and services
@@ -281,6 +283,59 @@ Soapbox's Nostr social client. A full-featured social experience built on the No
 
 **Recaps:**
 - Weekly recaps featured on Soapbox Sessions podcast (Thursdays)
+
+### Shakespeare OpenCode Plugin
+**Repository:** https://gitlab.com/soapbox-pub/shakespeare-opencode-plugin
+**Project Docs:** [[Soapbox/Apps/Shakespeare/shakespeare-opencode-plugin]]
+**Status:** Active Development (started Jan 2026)
+
+OpenCode plugin that brings Shakespeare capabilities to terminal/IDE environments:
+- Shakespeare AI provider and agent for Nostr app development
+- mkstack template cloning for quick project scaffolding
+- Shakespeare Deploy integration (NIP-98 authenticated)
+- Nostr Git (ngit) NIP-34 publishing
+- NIP-46 remote signing support (Amber/Primal)
+
+**Key DevRel Angles:**
+- Extends Shakespeare reach to developer-preferred workflows
+- Terminal-first developers can build Nostr apps without browser
+- Full deploy and publish pipeline from command line
+- Complements the web-based Shakespeare.diy experience
+
+**Demo Ideas:**
+- "Build and deploy a Nostr app without leaving your terminal"
+- Live coding session: clone template → build → deploy → publish to ngit
+- Compare workflow: browser vs terminal for different use cases
+
+### Shakespeare APK Builder
+**Build Server:** https://github.com/derekross/android-build-server
+**Shakespeare Integration:** https://gitlab.com/soapbox-pub/shakespeare/-/merge_requests/94
+**Project Docs:** [[Soapbox/Apps/Shakespeare/apk-builder]]
+**Status:** Active Development (started Jan 2026)
+
+Self-hosted Android APK build service for Shakespeare.diy users:
+- Convert web apps to Android APKs (WebView wrapper)
+- Debug and release builds with signing
+- Key generation and browser storage
+- NIP-98 Nostr authentication
+- Future: Zapstore publishing integration
+
+**Key DevRel Angles:**
+- Complete path from idea → web app → mobile app
+- No Android Studio or dev environment required
+- Democratizes mobile app creation
+- Future Zapstore integration = decentralized app distribution
+
+**Demo Ideas:**
+- "Turn your Shakespeare website into an Android app in 5 minutes"
+- End-to-end demo: build site → generate APK → install on phone
+- Workshop module: add APK building to standard Shakespeare workshop
+
+**Workshop Integration:**
+Consider adding APK building as an advanced module to Shakespeare workshops:
+1. Standard workshop flow (build web app)
+2. Advanced: Generate APK from your creation
+3. Participants leave with both web app AND Android app
 
 ### Other Soapbox Products
 - Additional products as released
@@ -567,8 +622,16 @@ how we're building tools for that future..."
 - NostrPlebs.com - Onboarding resources
 - NostrNests.com - Audio spaces
 - GitHub.com/soapbox-pub - Soapbox repos
+- GitLab.com/soapbox-pub - Soapbox GitLab repos
 - Nostr.com - Protocol overview
 - NIPs GitHub - Protocol specs
+
+### Shakespeare Ecosystem Links
+- Shakespeare Platform: https://shakespeare.diy
+- Shakespeare OpenCode Plugin: https://gitlab.com/soapbox-pub/shakespeare-opencode-plugin
+- APK Build Server: https://github.com/derekross/android-build-server
+- mkstack Framework: https://gitlab.com/soapbox-pub/mkstack
+- Gift Card Faucet: https://faucet.shakespeare.diy
 
 ### CLI Tools
 ```bash
@@ -665,6 +728,12 @@ task gitlab_project.contains:shakespeare list
 
 # List Soapbox-related GitLab tasks
 task gitlab_project.contains:soapbox list
+
+# List Shakespeare OpenCode Plugin tasks
+task project:shakespeare-opencode list
+
+# List APK Builder tasks
+task project:apk-builder list
 ```
 
 ### Obsidian Vault for DevRel
@@ -710,6 +779,18 @@ Daily task files include all DevRel-relevant items:
 - "Plan the diVine launch communications"
 - "Write a thread about owning your social graph"
 - "What's my approach to evangelism again?"
+
+### Shakespeare OpenCode Plugin Prompts
+- "Demo the OpenCode plugin for a developer audience"
+- "Write a blog post about terminal-based Nostr development"
+- "Create a tutorial for the Shakespeare OpenCode plugin"
+- "Plan a developer workshop around the OpenCode plugin"
+
+### APK Builder Prompts
+- "Demo the APK builder feature"
+- "Write content about turning web apps into Android apps"
+- "Add APK building to a Shakespeare workshop"
+- "Create a tutorial for generating Android apps from Shakespeare"
 
 ### DevRel Workflow Prompts
 - "Add a task to prepare for the Bitcoin conference talk"
