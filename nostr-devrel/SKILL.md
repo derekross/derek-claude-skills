@@ -7,6 +7,14 @@ description: Developer Relations toolkit for Nostr ecosystem and freedom tech. U
 
 A comprehensive Developer Relations toolkit for advocating Nostr protocol, freedom tech, and community empowerment. Tailored for Soapbox/AOS work including Shakespeare, community initiatives, and conference activities.
 
+## Supplementary Resources
+
+This skill includes additional reference files:
+
+- **[nips-reference.md](nips-reference.md)** - Quick NIP lookup table, common combinations, nak CLI cheatsheet
+- **[ecosystem-contacts.md](ecosystem-contacts.md)** - Key people, projects, and community hubs for outreach
+- **[sample-content.md](sample-content.md)** - Ready-to-use workshop scripts, social threads, Reddit posts, objection handling
+
 ## When to Use This Skill
 
 Use this skill when you need to:

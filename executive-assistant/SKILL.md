@@ -7,6 +7,17 @@ description: Comprehensive administrative support for task management, meeting n
 
 A comprehensive skill for managing administrative tasks, staying organized, and maintaining productivity as a subcontractor/consultant.
 
+## Supplementary Resources
+
+This skill includes additional reference files:
+
+- **[templates.md](templates.md)** - Email templates, meeting agendas, project briefs
+- **[checklists.md](checklists.md)** - Daily/weekly/quarterly operations, travel, project closeout
+- **[reference.md](reference.md)** - CLI cheatsheet for Taskwarrior, khal, khard, vdirsyncer
+- **[schedule-template.md](schedule-template.md)** - Generic time-block template for daily schedules
+
+**Live DevRel schedule:** `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+
 ## When to Use This Skill
 
 Use this skill when you need to:
@@ -658,12 +669,13 @@ Examples:
 
 ### Building Daily Schedules
 
-**Template Location:** `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+**Generic Template:** `schedule-template.md` (in this skill directory)
+**Live DevRel Template:** `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
 **Schedule Output Location:** `/home/raven/Vault/Soapbox/Work/Schedule/YYYY-MM-DD-schedule.md`
 
 When Derek asks you to build a daily schedule, create a schedule, or plan the day:
 
-1. **Read the template** at `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md`
+1. **Read the live template** at `/home/raven/Vault/Soapbox/Work/daily-task-schedule.md` (has current projects/milestones)
 2. **Read today's tasks** from `/home/raven/Vault/Soapbox/Work/Tasks/YYYY-MM-DD-tasks.md`
 3. **Check the calendar** with `khal list today`
 4. **Build the schedule** using the DevRel time blocks from the template
