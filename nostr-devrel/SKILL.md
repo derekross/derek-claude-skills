@@ -714,7 +714,38 @@ khal new "next thursday" 18:00 19:00 "Nostr Community Office Hours" -l "NostrNes
 
 ### GitLab for Soapbox Projects
 
-GitLab issues and MRs for Soapbox projects sync automatically to the daily task file.
+GitLab issues and MRs for Soapbox projects can be managed via the **GitLab CLI (`glab`)** and sync automatically to the daily task file.
+
+**Key Soapbox Repositories to Track:**
+- https://gitlab.com/soapbox-pub/mkstack - mkstack framework
+- https://gitlab.com/soapbox-pub/soapbox-signer - NIP-07 browser extension
+- https://gitlab.com/soapbox-pub/nostrhub - Nostr developer platform
+- https://gitlab.com/soapbox-pub/pathos - Pathos project
+- https://gitlab.com/soapbox-pub/shakespeare - AI website builder
+
+**GitLab CLI (`glab`) Commands:**
+```bash
+# List issues for a project
+glab issue list --repo soapbox-pub/shakespeare
+
+# View a specific issue
+glab issue view 123 --repo soapbox-pub/mkstack
+
+# List merge requests
+glab mr list --repo soapbox-pub/nostrhub
+
+# View MR details
+glab mr view 45 --repo soapbox-pub/pathos
+
+# List issues assigned to you
+glab issue list --assignee=@me --repo soapbox-pub/soapbox-signer
+
+# Create a new issue
+glab issue create --repo soapbox-pub/shakespeare --title "Issue title" --description "Description"
+
+# Check project activity
+glab repo view soapbox-pub/shakespeare --web
+```
 
 **Scripts Location:** `/home/raven/Projects/devRel/`
 
@@ -809,3 +840,11 @@ Daily task files include all DevRel-relevant items:
 - "Mark the speaker application as done"
 - "What workshops do I have coming up?"
 - "Show me my DevRel tasks for this week"
+
+### GitLab CLI Prompts
+- "List open issues on the Shakespeare repo"
+- "Show me MRs for mkstack"
+- "What issues are assigned to me on soapbox-signer?"
+- "Check the latest activity on nostrhub"
+- "Create an issue for pathos about..."
+- "View the details of issue #42 on Shakespeare"
