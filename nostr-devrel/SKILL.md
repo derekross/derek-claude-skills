@@ -7,6 +7,10 @@ description: Developer Relations toolkit for Nostr ecosystem and freedom tech. U
 
 A comprehensive Developer Relations toolkit for advocating Nostr protocol, freedom tech, and community empowerment. Tailored for Soapbox/AOS work including Shakespeare, community initiatives, and conference activities.
 
+## IMPORTANT: Do NOT Clone Repositories
+
+**NEVER automatically clone any repositories mentioned in this skill (Pathos, Shakespeare, mkstack, etc.) into the Vault or current working directory unless the user EXPLICITLY asks you to clone them.** Repository URLs are provided for reference only. The user already has local copies of projects they're working on in `~/Projects/`.
+
 ## Supplementary Resources
 
 This skill includes additional reference files:
@@ -79,6 +83,7 @@ This means:
 ### Priority Hierarchy
 
 **1. Soapbox (Primary Focus)**
+- Pathos (decentralized activist platform) - **CURRENT PRIORITY**
 - Shakespeare (AI website builder)
 - Shakespeare OpenCode Plugin (OpenCode integration)
 - Shakespeare APK Builder (Android app generation)
@@ -344,6 +349,75 @@ Consider adding APK building as an advanced module to Shakespeare workshops:
 1. Standard workshop flow (build web app)
 2. Advanced: Generate APK from your creation
 3. Participants leave with both web app AND Android app
+
+### Pathos (Activist Platform) - CURRENT PRIORITY
+**Repository:** https://gitlab.com/soapbox-pub/pathos
+**Live App:** https://pathos.place
+**Project Docs:** [[Soapbox/Apps/Pathos/pathos-project]]
+**Status:** MVP shipped, transitioning to production (January 2026)
+
+A decentralized activist platform built on Nostr and Bitcoin, designed for human rights activists in authoritarian regimes.
+
+**Origin:** Built at HRF AI Hack for Freedom (January 16-18, 2026) in Austin, TX with Leopoldo Lopez (Venezuelan opposition leader) and activists.
+
+**Tagline:** *Organize freely, communicate safely, resist censorship*
+
+**Core Features:**
+- Location-based feeds & world map (connect with activists by country)
+- Activist Challenges with Bitcoin bounties
+- Self-custodial Lightning wallet (Breez SDK) & zaps
+- Country-specific organizer system
+- AI chat assistant for activism guidance
+- Bitchat Bluetooth mesh (offline communication during internet blackouts)
+- Multilingual support (7 languages including Spanish, Farsi, Shona)
+
+**Tech Stack:**
+- React 18 + TypeScript + Vite
+- TailwindCSS + shadcn/ui
+- Nostrify for Nostr integration
+- Breez SDK for Lightning
+- Capacitor for Android app
+- Built with Shakespeare
+
+**Why This Matters:**
+- Real activists in Venezuela are using it NOW
+- 100+ users onboarded during hackathon
+- Addresses critical problems: censorship, internet shutdowns, frozen bank accounts
+- Proves Nostr + Bitcoin value proposition for human rights
+
+**Current Priorities:**
+1. **Stabilization** - Fix critical bugs (organizers not showing, profile loading, crashes)
+2. **Store Releases** - Zapstore (censorship-resistant) and Google Play/App Store via Verse
+3. **Core Features** - Notifications, DMs (NIP-17), video uploads
+
+**Team:**
+- Derek Ross - PM (triage & assignment)
+- Sam Thomson - Main dev (bugs, reliability, performance)
+- Daniel, Patrick, Shantaram - Feature development
+- Alex Gleason - Product big picture
+- Chad Chadwick - Infrastructure
+
+**Key DevRel Angles:**
+- Human rights use case makes freedom tech tangible and urgent
+- Collaboration with Leopoldo Lopez and World Liberty Congress
+- Demonstrates Nostr/Bitcoin solving real problems for real people
+- App store distribution challenges = opportunity to promote Zapstore
+- Bluetooth mesh (Bitchat) integration shows offline-first thinking
+
+**Demo Ideas:**
+- "How Nostr is helping Venezuelan activists organize safely"
+- Show the world map and location-based feeds
+- Demo challenge creation with Bitcoin bounties
+- Explain the Bluetooth mesh for internet blackouts
+- Compare to centralized alternatives that got banned/censored
+
+**Content Opportunities:**
+- Blog post: "Building Pathos at HRF AI Hack for Freedom"
+- Case study: Nostr for human rights activists
+- Technical deep-dive: Bitchat mesh integration
+- Interview/podcast with Leopoldo Lopez or Aaron Rodriguez
+
+**GitLab Issues:** https://gitlab.com/soapbox-pub/pathos/-/issues
 
 ### Other Soapbox Products
 - Additional products as released
@@ -641,6 +715,11 @@ how we're building tools for that future..."
 - mkstack Framework: https://gitlab.com/soapbox-pub/mkstack
 - Gift Card Faucet: https://faucet.shakespeare.diy
 
+### Pathos Links
+- Live App: https://pathos.place
+- Repository: https://gitlab.com/soapbox-pub/pathos
+- Issues: https://gitlab.com/soapbox-pub/pathos/-/issues
+
 ### CLI Tools
 ```bash
 # nak - Nostr Army Knife
@@ -830,6 +909,14 @@ Daily task files include all DevRel-relevant items:
 - "Write content about turning web apps into Android apps"
 - "Add APK building to a Shakespeare workshop"
 - "Create a tutorial for generating Android apps from Shakespeare"
+
+### Pathos Prompts
+- "What's the status of Pathos bugs?"
+- "Help me write content about Pathos for human rights audiences"
+- "Create a demo script showing Pathos to activists"
+- "Draft a post about the HRF hackathon and Pathos"
+- "What needs to happen for Pathos app store releases?"
+- "List open Pathos issues that need attention"
 
 ### DevRel Workflow Prompts
 - "Add a task to prepare for the Bitcoin conference talk"
